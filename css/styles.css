@@ -7,6 +7,51 @@ body {
 }
 
 /* ===== HERO ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(160deg, #071428, #0b2145);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 40px 60px;
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(255, 224, 130, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 50px rgba(255, 224, 130, 0.2);
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 4rem;
+  color: #ffe082;
+}
+
+.btn {
+  padding: 12px 28px;
+  background: #ffe082;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 2rem;
+}
+
+.btn:hover {
+  background: #fff3cd;
+  transform: scale(1.05);
+}
+/* ===== HERO ===== */
 .gallery-section {
   width: 100%;
   padding: 40px 20px;  /* отступы по бокам */
