@@ -1,0 +1,197 @@
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: radial-gradient(circle at top, #0d1b38, #060d1f);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.gallery-section {
+  width: 100%;
+  padding: 40px 20px;  /* отступы по бокам */
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;              /* расстояние между карточками */
+  justify-content: center; /* центрируем галерею */
+  max-width: 1400px;       /* ограничиваем ширину, чтобы был красивый отступ по бокам */
+  width: 100%;
+}
+
+.thumb {
+  flex: 1 1 220px;       /* карточка растёт, но минимальная ширина 220px */
+  max-width: 250px;       /* ограничиваем максимальный размер */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 224, 130, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.thumb:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(255, 224, 130, 0.25);
+}
+
+.thumb .img-wrap {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.03);
+}
+
+.thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+.thumb:hover img {
+  transform: scale(1.05);
+}
+
+.thumb .thumb-caption {
+  padding: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffe082;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.15));
+}
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  transition: opacity 0.4s ease;
+  z-index: 999;
+}
+
+.modal.open {
+  display: flex;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-content {
+  background: #0b1a32;
+  padding: 30px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  max-width: 95%;
+  width: 40%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 0 50px rgba(255, 224, 130, 0.2);
+}
+
+.modal-content img {
+  width: auto;
+  max-width: 85%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.35s ease;
+}
+
+.modal-content img:hover {
+  transform: scale(1.03);
+}
+
+.modal-content h3 {
+  font-size: 3rem;
+  color: #ffe082;
+  margin: 0;
+}
+
+.modal-content p {
+  font-size: 1.6rem;
+  color: #ddd;
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: #ffe082;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.close:hover {
+  transform: rotate(90deg);
+  color: #fff3cd;
+}
+
+/* ===== ADAPTIVE ===== */
+@media (max-width: 1000px) {
+  .thumb {
+    flex: 1 1 200px;
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 700px) {
+  .thumb {
+    flex: 1 1 45%; /* две карточки в ряд */
+    max-width: none;
+  }
+
+  .thumb .img-wrap {
+    height: 200px;
+  }
+
+  .modal-content img {
+    max-width: 100%;
+    max-height: 60vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .thumb {
+    flex: 1 1 90%; /* одна карточка в ряд */
+    max-width: none;
+  }
+
+  .modal-content h3 {
+    font-size: 2rem;
+  }
+
+  .modal-content p {
+    font-size: 1.4rem;
+  }
+}
+
+
